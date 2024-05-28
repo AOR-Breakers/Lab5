@@ -5,6 +5,8 @@ private:
   int NumberOfMachines;
   std::vector<double> Gen;
 
+  double Fitness;
+
 public:
   Chromosome() = delete;
   Chromosome(const int NumberOfMachines)
@@ -16,6 +18,9 @@ public:
 
   Chromosome(const int NumberOfMachines, const std::vector<double> &Gen)
       : Gen(Gen), NumberOfMachines(NumberOfMachines){};
+
+  void setFitness(double Fitness) { Fitness = Fitness; }
+  double getFitness() const { return Fitness; }
 
   int getNumberOfMachines() const { return NumberOfMachines; }
   int getNumberOfCells() const {
