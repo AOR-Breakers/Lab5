@@ -21,17 +21,17 @@ class LocalSearch {
 public:
   LocalSearch() = delete;
 
-  LocalSearch(const std::vector<std::vector<int>> ProductToMachines,
+  LocalSearch(const std::vector<std::vector<int>> MachineToProducts,
               int ProductsNumber, int MachinesNumber)
-      : ProductToMachines(ProductToMachines), MachineToProducts(MachinesNumber),
+      : ProductToMachines(ProductsNumber), MachineToProducts(MachineToProducts),
         ProductsNumber(ProductsNumber), MachinesNumber(MachinesNumber) {
     TotalMachinesUses = 0;
-    for (std::size_t I = 0; I < ProductsNumber; ++I) {
-      std::vector<int> Machines = ProductToMachines[I];
-      for (int &Machine : Machines) {
-        MachineToProducts[Machine - 1].push_back(I + 1);
+    for (std::size_t I = 0; I < MachinesNumber; ++I) {
+      std::vector<int> Products = MachineToProducts[I];
+      for (int &Product : Products) {
+        ProductToMachines[Product - 1].push_back(I + 1);
       }
-      TotalMachinesUses += Machines.size();
+      TotalMachinesUses += Products.size();
     }
   }
 
