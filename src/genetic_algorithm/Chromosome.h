@@ -14,6 +14,9 @@ public:
     }
   };
 
+  Chromosome(const int NumberOfMachines, const std::vector<double> &Gen)
+      : Gen(Gen), NumberOfMachines(NumberOfMachines){};
+
   int getNumberOfMachines() const { return NumberOfMachines; }
   int getNumberOfCells() const {
     return std::ceil(Gen[NumberOfMachines] * NumberOfMachines);
