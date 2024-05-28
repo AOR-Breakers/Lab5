@@ -1,1 +1,2 @@
 add_subdirectory(local_search)
+add_subdirectory(genetic_algorithm)
