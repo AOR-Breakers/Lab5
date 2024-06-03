@@ -1,6 +1,8 @@
+#pragma once
 #include "Mutation.h"
 #include <cstdlib>
 #include <vector>
+
 class GenMutation : public Mutation {
 
 private:

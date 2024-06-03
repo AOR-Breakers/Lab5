@@ -1,3 +1,5 @@
+#pragma once
+
 #include <cmath>
 #include <vector>
 class Chromosome {
@@ -5,10 +7,9 @@ private:
   int NumberOfMachines;
   std::vector<double> Gen;
 
-  double Fitness;
+  double Fitness = -1;
 
 public:
-  Chromosome() = delete;
   Chromosome(const int NumberOfMachines)
       : NumberOfMachines(NumberOfMachines), Gen(NumberOfMachines + 1) {
     for (size_t I = 0; I < NumberOfMachines + 1; ++I) {
@@ -19,7 +20,7 @@ public:
   Chromosome(const int NumberOfMachines, const std::vector<double> &Gen)
       : Gen(Gen), NumberOfMachines(NumberOfMachines){};
 
-  void setFitness(double Fitness) { Fitness = Fitness; }
+  void setFitness(double NewFitness) { Fitness = NewFitness; }
   double getFitness() const { return Fitness; }
 
   int getNumberOfMachines() const { return NumberOfMachines; }
@@ -27,6 +28,7 @@ public:
     return std::ceil(Gen[NumberOfMachines] * NumberOfMachines);
   }
   std::vector<double> getGen() const { return Gen; }
+  void getGen(std::vector<double> Gen) const { Gen = Gen; }
 
   std::vector<std::vector<int>> getMachinesByCells() const {
     int NumberOfCells = getNumberOfCells();

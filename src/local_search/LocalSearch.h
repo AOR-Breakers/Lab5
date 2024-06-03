@@ -43,4 +43,6 @@ public:
 
   std::pair<std::vector<std::vector<int>>, double>
   start(const std::vector<std::vector<int>> &MachinesByCells);
+
+  int getMachinesNumber() { return MachinesNumber; }
 };

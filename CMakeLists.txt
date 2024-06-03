@@ -6,9 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(DOWNLOAD_EXTRACT_TIMESTAMP ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
-add_compile_options(-fsanitize=address)
-add_link_options(-fsanitize=address)
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+# add_compile_options(-fsanitize=address) add_link_options(-fsanitize=address)
 
 include(FetchContent)
 FetchContent_Declare(
