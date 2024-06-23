@@ -11,14 +11,13 @@ class LocalSearch {
   double calculateCoef(const std::vector<int> &Machines,
                        const std::vector<int> &CellMachines);
 
-  double calculatePairCoef(const std::vector<std::vector<int>> &MachinesByCells,
-                           const std::vector<std::vector<int>> &ProductByCells);
-
   std::pair<int, int>
   calculateMachinesOutAndIn(const std::vector<int> &Machines,
                             const std::vector<int> &CellMachines);
 
 public:
+  double calculatePairCoef(const std::vector<std::vector<int>> &MachinesByCells,
+                           const std::vector<std::vector<int>> &ProductByCells);
   LocalSearch() = delete;
 
   LocalSearch(const std::vector<std::vector<int>> MachineToProducts,

@@ -10,6 +10,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <utility>
 #include <vector>
 
 void printVector(std::ofstream &Out, std::vector<int> &V) {
@@ -48,7 +49,7 @@ void solve(std::string Filename) {
   double TargetSimilarity = 0.95;
   double MutationProbabilty = 0.5;
   int64_t MaximalCyclesNumber = 500000;
-  int64_t MaximalCyclesWithoutNewBest = 10000;
+  int64_t MaximalCyclesWithoutNewBest = 1000;
 
   std::chrono::steady_clock::time_point BeginTime =
       std::chrono::steady_clock::now();
@@ -75,11 +76,12 @@ void solve(std::string Filename) {
                  .count() %
              1000
       << "\n\n";
-
-  std::vector<std::vector<int>> MachinesByCells =
-      LS.start(Best.getMachinesByCells()).first;
+  std::vector<std::vector<int>> MachinesByCells = Best.getMachinesByCells();
   std::vector<std::vector<int>> ProductsBYCells =
       LS.getProducts(MachinesByCells);
+
+  std::cout << LS.calculatePairCoef(MachinesByCells, ProductsBYCells)
+            << std::endl;
 
   std::vector<int> MachineToCluster(NumberOfMachines);
   std::vector<int> ProductsToCluster(NumberOfProducts);
