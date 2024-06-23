@@ -49,7 +49,7 @@ void solve(std::string Filename) {
   double TargetSimilarity = 0.95;
   double MutationProbabilty = 0.5;
   int64_t MaximalCyclesNumber = 500000;
-  int64_t MaximalCyclesWithoutNewBest = 1000;
+  int64_t MaximalCyclesWithoutNewBest = 10000;
 
   std::chrono::steady_clock::time_point BeginTime =
       std::chrono::steady_clock::now();
